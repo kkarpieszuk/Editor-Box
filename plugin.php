@@ -2,7 +2,7 @@
 /**
  * Plugin name: Editor Box
  * Description: The post editor placed on the front page of the site, inspired by Facebook (or Twitter, or LinkedIn...) status publishing pagelet.
- * Version: 1.0
+ * Version: 1.0 beta
  * Author: Konrad Karpieszuk
  * Author URI: http://muzungu.pl
  * Plugin URI: https://github.com/kkarpieszuk/Editor-Box
@@ -35,6 +35,7 @@ function place_box( $wp_query ) {
 function render_editor() {
 ?>
     <form method="post" id="editor_box">
+        <?php wp_nonce_field( 'editor_box_nonce' ); ?>
         <label for="editor_box_title"><?php _e( "The title:", "editor_box" ); ?></label>
         <input type="text"
                name="editor_box_title"
@@ -50,7 +51,9 @@ function render_editor() {
 }
 
 function process_post() {
-    if ( isset( $_POST['editor_box_publish'] ) && current_user_can( "edit_posts" ) ) {
+    if ( isset( $_POST['editor_box_publish'] )
+         && current_user_can( "edit_posts" )
+         && wp_verify_nonce( $_POST['_wpnonce'], 'editor_box_nonce' ) ) {
         if ( isset( $_POST['editor_box_title'] )  && isset( $_POST['editor_box_content'] ) ) {
             $post_id = wp_insert_post( array(
                     'post_content' => $_POST['editor_box_content'],
