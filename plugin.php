@@ -60,7 +60,8 @@ function process_post() {
                     'post_title' => $_POST['editor_box_title'],
                     'post_status' => 'publish'
             ) );
-            wp_redirect( get_site_url() );
+            $redirect_to = is_numeric( $post_id ) ? get_permalink( $post_id ) : get_site_url();
+            wp_redirect( $redirect_to );
             exit();
         }
     }
