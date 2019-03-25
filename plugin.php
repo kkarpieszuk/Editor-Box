@@ -80,7 +80,7 @@ function process_post() {
     if ( isset( $_POST['editor_box_publish'] )
          && current_user_can( "edit_posts" )
          && wp_verify_nonce( $_POST['_wpnonce'], 'editor_box_nonce' ) ) {
-        if ( isset( $_POST['editor_box_title'] )  && isset( $_POST['editor_box_content'] ) ) {
+        if ( !empty( $_POST['editor_box_title'] )  && !empty( $_POST['editor_box_content'] ) ) {
             $post_args = array(
 	            'post_content' => $_POST['editor_box_content'],
 	            'post_title' => $_POST['editor_box_title'],
