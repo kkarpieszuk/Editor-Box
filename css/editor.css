@@ -12,7 +12,9 @@
     display: none;
 }
 
-#editor_box > input[type='submit'] {
-    width: 25%;
-    float: right;
+#editor_box .one_third {
+    width: 32%;
+    float: left;
+    margin-right: 1%;
+    display: inline-block;
 }
