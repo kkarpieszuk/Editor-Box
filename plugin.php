@@ -45,16 +45,18 @@ function render_editor() {
         <textarea name="editor_box_content"
                   id="editor_box_content"
                   placeholder="<?php _e('Start writing', 'editor_box' ); ?>"></textarea>
-        <label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
-        <input type="text"
-               placeholder="<?php _e('Tags (comma seprated)', 'editor_box' ) ; ?>"
-               name="editor_box_tags"
-               class="one_third" >
-        <?php render_categories(); ?>
-        <input type="submit"
-               name="editor_box_publish"
-               value="<?php _e("Publish", "editor_box" ); ?>"
-               class="one_third">
+        <div id="editor_box_meta">
+            <label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
+            <input type="text"
+                   placeholder="<?php _e('Tags (comma seprated)', 'editor_box' ) ; ?>"
+                   name="editor_box_tags"
+                   class="one_third" >
+            <?php render_categories(); ?>
+            <input type="submit"
+                   name="editor_box_publish"
+                   value="<?php _e("Publish", "editor_box" ); ?>"
+                   class="one_third">
+        </div>
     </form>
 <?php
 }

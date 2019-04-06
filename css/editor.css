@@ -8,13 +8,15 @@
     margin: 0px 0px 5px 0px;
 }
 
-#editor_box > label {
+#editor_box label {
     display: none;
 }
 
-#editor_box .one_third {
-    width: 32%;
-    float: left;
-    margin-right: 1%;
-    display: inline-block;
+#editor_box_meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+#editor_box_meta .one_third {
+    width: 33%;
 }
