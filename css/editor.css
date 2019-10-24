@@ -6,6 +6,7 @@
     display: block;
     width: 100%;
     margin: 0px 0px 5px 0px;
+    border: 2px solid red;
 }
 
 #editor_box > label {
