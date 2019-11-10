@@ -13,9 +13,15 @@
 add_action( 'loop_start', 'place_box', 10, 1);
 add_action( 'init', 'process_post', 10, 0 );
 add_action( 'wp_enqueue_scripts', 'enqueue_editor_stuff' );
+add_action( 'wp_ajax_nopriv_editor_box_file', 'save_editor_box_file' );
+add_action( 'wp_ajax_editor_box_file', 'save_editor_box_file' );
 
 function enqueue_editor_stuff() {
     wp_enqueue_style( 'editor_box_style', plugins_url( 'css/editor.css', __FILE__ ));
+    wp_enqueue_script( 'editor_box_script', plugins_url( 'js/editor.js', __FILE__ ), ['jquery'] );
+	wp_localize_script('editor_box_script', 'editor_box_ajax', array(
+		'ajaxurl' => admin_url('admin-ajax.php')
+	));
 }
 
 /**
@@ -27,6 +33,7 @@ function place_box( $wp_query ) {
 
 	if ( is_front_page() && current_user_can( "edit_posts" ) ) {
 		render_editor();
+		render_add_image();
 	}
 
 	return true;
@@ -57,6 +64,20 @@ function render_editor() {
                    value="<?php _e("Publish", "editor_box" ); ?>"
                    class="one_third">
         </div>
+    </form>
+<?php
+}
+
+function render_add_image() {
+    // https://wordpress.stackexchange.com/questions/198781/wordpress-ajax-file-upload-frontend
+    // https://stackoverflow.com/questions/4006520/using-html5-file-uploads-with-ajax-and-jquery
+?>
+    <form id="editor_box_add_image" method="post" enctype="multipart/form-data">
+        <label for="editor_box_image_upload"><?php _e( 'Insert image into text', 'editor_box'); ?></label>
+        <input type="file" name="editor_box_image_upload" id="editor_box_image_upload">
+        <input type="submit"
+               name="editor_box_image_submit"
+               value="<?php _e("Send and insert image", "editor_box" ); ?>">
     </form>
 <?php
 }
@@ -101,5 +122,16 @@ function process_post() {
             wp_redirect( $redirect_to );
             exit();
         }
+    }
+}
+
+function save_editor_box_file() {
+    $var = 'test';
+    if ( ! empty( $_POST['fileName'] ) && ! empty( $_POST['imgblob'] ) ) {
+	    $upload = wp_upload_bits( $_POST['fileName'], null, $_POST['imgblob'] );
+	    if ( ! $upload['error'] ) {
+            wp_insert_attachment();
+        }
+	    $var = 'test';
     }
 }
