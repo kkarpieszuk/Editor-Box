@@ -1,5 +1,6 @@
 #editor_box {
     margin: 5%;
+    margin-bottom: 0px;
 }
 
 #editor_box > * {
@@ -19,4 +20,14 @@
 
 #editor_box_meta .one_third {
     width: 33%;
+}
+
+#editor_box_add_image {
+    margin: 5%;
+    margin-top: 0px;
+}
+
+#editor_box_add_image > * {
+    width: 100%;
+    display: block;
 }
