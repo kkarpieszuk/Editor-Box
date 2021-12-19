@@ -31,3 +31,7 @@
     width: 100%;
     display: block;
 }
+
+#ebox_image_select {
+    display: none;
+}
