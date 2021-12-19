@@ -32,9 +32,10 @@ class FrontEnd {
 			          id="editor_box_content"
 			          placeholder="<?php _e('Start writing', 'editor_box' ); ?>"></textarea>
 			<div id="editor_box_meta">
+                <button id="ebox_trigger_image_upload"><?php _e('Add image', 'editor_box' ); ?></button>
 				<label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
 				<input type="text"
-				       placeholder="<?php _e('Tags (comma seprated)', 'editor_box' ) ; ?>"
+				       placeholder="<?php _e('Tags (comma separated)', 'editor_box' ) ; ?>"
 				       name="editor_box_tags"
 				       class="one_third" >
 				<?php $this->render_categories(); ?>
@@ -51,11 +52,8 @@ class FrontEnd {
 		?>
 		<form id="editor_box_add_image" method="post" enctype="multipart/form-data">
 			<?php wp_nonce_field( 'editor_box_img_nonce' ); ?>
-			<label for="<?php echo IMGINPUT; ?>>"><?php _e( 'Insert image into text', 'editor_box'); ?></label>
-			<input type="file" name="<?php echo IMGINPUT; ?>" id="<?php echo IMGINPUT; ?>">
-			<input type="submit"
-			       name="editor_box_image_submit"
-			       value="<?php _e("Insert image into the post content", "editor_box" ); ?>">
+			<input type="file" id="ebox_image_select" name="<?php echo IMGINPUT; ?>" id="<?php echo IMGINPUT; ?>">
+
 		</form>
 		<?php
 	}

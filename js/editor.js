@@ -1,9 +1,17 @@
 jQuery(document).ready(function($) {
+    $('#ebox_trigger_image_upload').on( 'click', function(event) {
+        $('#ebox_image_select').trigger('click');
+        return false;
+    } );
+
+    $('#ebox_image_select').on('input', function() {
+        $('#editor_box_add_image').trigger('submit');
+    });
+
     $('#editor_box_add_image').on('submit', function( event ) {
         event.preventDefault();
         var data = new FormData( this );
         data.append( 'action', 'editor_box_file' );
-        console.log(data);
         jQuery.ajax({
             url: editor_box_ajax.ajaxurl,
             type: "POST",
