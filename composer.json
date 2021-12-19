@@ -1,0 +1,19 @@
+{
+    "name": "kkarpieszuk/editor-box",
+    "description": "The post editor placed on the front page of the site, inspired by Facebook (or Twitter, or LinkedIn...) status publishing pagelet.",
+    "type": "project",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "konrad",
+            "email": "kkarpieszuk@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "EditorBox\\": "app/EditorBox"
+        }
+    }
+}
