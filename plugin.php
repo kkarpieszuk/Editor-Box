@@ -10,12 +10,20 @@
  * Text Domain: editor_box
  */
 
+define( 'IMGINPUT', 'editor_box_image_upload' );
+
 add_action( 'loop_start', 'place_box', 10, 1);
 add_action( 'init', 'process_post', 10, 0 );
 add_action( 'wp_enqueue_scripts', 'enqueue_editor_stuff' );
+add_action( 'wp_ajax_nopriv_editor_box_file', 'save_editor_box_file' );
+add_action( 'wp_ajax_editor_box_file', 'save_editor_box_file' );
 
 function enqueue_editor_stuff() {
     wp_enqueue_style( 'editor_box_style', plugins_url( 'css/editor.css', __FILE__ ));
+    wp_enqueue_script( 'editor_box_script', plugins_url( 'js/editor.js', __FILE__ ), ['jquery'] );
+	wp_localize_script('editor_box_script', 'editor_box_ajax', array(
+		'ajaxurl' => admin_url('admin-ajax.php')
+	));
 }
 
 /**
@@ -27,6 +35,7 @@ function place_box( $wp_query ) {
 
 	if ( is_front_page() && current_user_can( "edit_posts" ) ) {
 		render_editor();
+		render_add_image();
 	}
 
 	return true;
@@ -57,6 +66,19 @@ function render_editor() {
                    value="<?php _e("Publish", "editor_box" ); ?>"
                    class="one_third">
         </div>
+    </form>
+<?php
+}
+
+function render_add_image() {
+?>
+    <form id="editor_box_add_image" method="post" enctype="multipart/form-data">
+	    <?php wp_nonce_field( 'editor_box_img_nonce' ); ?>
+        <label for="<?php echo IMGINPUT; ?>>"><?php _e( 'Insert image into text', 'editor_box'); ?></label>
+        <input type="file" name="<?php echo IMGINPUT; ?>" id="<?php echo IMGINPUT; ?>">
+        <input type="submit"
+               name="editor_box_image_submit"
+               value="<?php _e("Send and insert image", "editor_box" ); ?>">
     </form>
 <?php
 }
@@ -103,3 +125,37 @@ function process_post() {
         }
     }
 }
+
+function save_editor_box_file() {
+    if ( ! empty( $_FILES[ IMGINPUT ]['name'] )
+         && ! empty( $_FILES[ IMGINPUT ]['tmp_name'] )
+         && is_image_filetype( $_FILES[ IMGINPUT ]['type'] )
+         && wp_verify_nonce( $_POST['_wpnonce'], 'editor_box_img_nonce' )
+    ) {
+        $file = wp_handle_upload( $_FILES[ IMGINPUT ], [ 'action' => 'editor_box_file' ] );
+	    if ( ! $file['error'] ) {
+		    $url      = $file['url'];
+		    $type     = $file['type'];
+		    $file     = $file['file'];
+		    $filename = wp_basename( $file );
+		    $object = array(
+			    'post_title'     => $filename,
+			    'post_content'   => $url,
+			    'post_mime_type' => $type,
+			    'guid'           => $url
+		    );
+
+		    // Save the data.
+		    $id = wp_insert_attachment( $object, $file );
+
+		    // Add the metadata.
+		    wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
+
+            wp_send_json( [ 'url' => $url ] );
+        }
+    }
+}
+
+	function is_image_filetype( $type ) {
+        return str_starts_with( $type, 'image/' );
+	}
