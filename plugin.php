@@ -78,7 +78,7 @@ function render_add_image() {
         <input type="file" name="<?php echo IMGINPUT; ?>" id="<?php echo IMGINPUT; ?>">
         <input type="submit"
                name="editor_box_image_submit"
-               value="<?php _e("Insert image into post content", "editor_box" ); ?>">
+               value="<?php _e("Insert image into the post content", "editor_box" ); ?>">
     </form>
 <?php
 }
