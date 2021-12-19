@@ -8,6 +8,8 @@
  * Plugin URI: https://github.com/kkarpieszuk/Editor-Box
  * License: GPL 3
  * Text Domain: editor_box
+ * Requires at least: 4.9
+ * Requires PHP: 7.0
  */
 
 use EditorBox\Hooks;
