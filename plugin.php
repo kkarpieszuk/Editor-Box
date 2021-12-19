@@ -157,5 +157,6 @@ function save_editor_box_file() {
 }
 
 	function is_image_filetype( $type ) {
-        return str_starts_with( $type, 'image/' );
+        $needle = 'image/';
+        return 0 === \strncmp($type, $needle, \strlen($needle));
 	}
