@@ -8,6 +8,7 @@
  * Plugin URI: https://github.com/kkarpieszuk/Editor-Box
  * License: GPL 3
  * Text Domain: editor_box
+ * Domain Path: /languages
  * Requires at least: 4.9
  * Requires PHP: 7.0
  */

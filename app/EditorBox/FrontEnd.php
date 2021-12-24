@@ -53,7 +53,7 @@ class FrontEnd {
         if ( isset( $_POST['editor_box_publish'] ) && empty( trim( $_POST['editor_box_content'] ) ) ) {
             ?>
             <div class="editor-box-error editor-box-no-content">
-                <?php _e( 'Your post must contain at least the post content.', 'editor-box' ); ?>
+                <?php _e( 'Your post must contain at least the post content.', 'editor_box' ); ?>
             </div>
             <?php
         }
