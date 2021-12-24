@@ -1,0 +1,75 @@
+# Copyright (C) 2021 Konrad Karpieszuk
+# This file is distributed under the same license as the Editor Box plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Editor Box 1.0 beta\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Editor-Box\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-12-24T12:58:31+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: editor_box\n"
+
+#. Plugin Name of the plugin
+msgid "Editor Box"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/kkarpieszuk/Editor-Box"
+msgstr ""
+
+#. Description of the plugin
+msgid "The post editor placed on the front page of the site, inspired by Facebook (or Twitter, or LinkedIn...) status publishing pagelet."
+msgstr ""
+
+#. Author of the plugin
+msgid "Konrad Karpieszuk"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://muzungu.pl"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:25
+msgid "The title:"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:29
+msgid "Add title (optional)"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:30
+msgid "What's happening?"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:33
+msgid "Start writing"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:36
+msgid "Add image"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:37
+msgid "Tags:"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:39
+msgid "Tags (comma separated)"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:45
+msgid "Publish"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:56
+msgid "Your post must contain at least the post content."
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:78
+msgid "Category"
+msgstr ""
