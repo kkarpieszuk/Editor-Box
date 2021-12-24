@@ -22,6 +22,11 @@
     width: 33%;
 }
 
+.editor-box-error.editor-box-no-content {
+    color: red;
+    text-align: center;
+}
+
 #editor_box_add_image {
     margin: 5%;
     margin-top: 0px;

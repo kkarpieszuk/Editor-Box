@@ -31,6 +31,7 @@ class FrontEnd {
 			<textarea name="editor_box_content"
 			          id="editor_box_content"
 			          placeholder="<?php _e('Start writing', 'editor_box' ); ?>"></textarea>
+            <?php $this->no_content_error_message(); ?>
 			<div id="editor_box_meta">
                 <button id="ebox_trigger_image_upload"><?php _e('Add image', 'editor_box' ); ?></button>
 				<label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
@@ -47,6 +48,16 @@ class FrontEnd {
 		</form>
 		<?php
 	}
+
+    private function no_content_error_message() {
+        if ( isset( $_POST['editor_box_publish'] ) && empty( trim( $_POST['editor_box_content'] ) ) ) {
+            ?>
+            <div class="editor-box-error editor-box-no-content">
+                <?php _e( 'Your post must contain at least the post content.', 'editor-box' ); ?>
+            </div>
+            <?php
+        }
+    }
 
 	private function render_add_image() {
 		?>
