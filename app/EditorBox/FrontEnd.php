@@ -50,7 +50,7 @@ class FrontEnd {
 	}
 
     private function no_content_error_message() {
-        if ( isset( $_POST['editor_box_publish'] ) && empty( trim( $_POST['editor_box_content'] ) ) ) {
+        if ( isset( $_POST['editor_box_publish'] ) && empty( trim( wp_kses( $_POST['editor_box_content'], 'post' ) ) ) ) {
             ?>
             <div class="editor-box-error editor-box-no-content">
                 <?php _e( 'Your post must contain at least the post content.', 'editor_box' ); ?>
