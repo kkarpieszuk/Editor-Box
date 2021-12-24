@@ -23,8 +23,11 @@
 }
 
 .editor-box-error.editor-box-no-content {
-    color: red;
+    color: white;
     text-align: center;
+    background: red;
+    padding: 3px;
+    border: 1px solid red;
 }
 
 #editor_box_add_image {
