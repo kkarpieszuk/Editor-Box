@@ -7,10 +7,13 @@ class ProcessForms {
 		if ( isset( $_POST['editor_box_publish'] )
 		     && current_user_can( "edit_posts" )
 		     && wp_verify_nonce( $_POST['_wpnonce'], 'editor_box_nonce' ) ) {
-			if ( !empty( $_POST['editor_box_title'] )  && !empty( $_POST['editor_box_content'] ) ) {
+			if ( !empty( $_POST['editor_box_content'] ) ) {
+				$post_title = ! empty( $_POST['editor_box_title'] ) ?
+					$_POST['editor_box_title'] :
+					wp_trim_words( strip_tags( $_POST['editor_box_content'] ), 5, '...' );
 				$post_args = array(
 					'post_content' => $_POST['editor_box_content'],
-					'post_title' => $_POST['editor_box_title'],
+					'post_title' => $post_title,
 					'post_status' => 'publish'
 				);
 				if ( !empty( $_POST['editor_box_categories'] ) && is_numeric( $_POST['editor_box_categories'] ) ) {

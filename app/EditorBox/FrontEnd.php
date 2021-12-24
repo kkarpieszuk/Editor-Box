@@ -26,7 +26,7 @@ class FrontEnd {
 			<input type="text"
 			       name="editor_box_title"
 			       id="editor_box_title"
-			       placeholder="<?php _e( 'Add title', 'editor_box'); ?>" />
+			       placeholder="<?php _e( 'Add title (optional)', 'editor_box'); ?>" />
 			<label for="editor_box_content"><?php _e("What's happening?", "editor_box"); ?></label>
 			<textarea name="editor_box_content"
 			          id="editor_box_content"
