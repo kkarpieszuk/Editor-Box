@@ -9,18 +9,18 @@ class ProcessForms {
 		     && wp_verify_nonce( $_POST['_wpnonce'], 'editor_box_nonce' ) ) {
 			if ( !empty( trim( $_POST['editor_box_content'] ) ) ) {
 				$post_title = ! empty( $_POST['editor_box_title'] ) ?
-					$_POST['editor_box_title'] :
-					wp_trim_words( strip_tags( $_POST['editor_box_content'] ), 5, '...' );
-				$post_args = array(
-					'post_content' => $_POST['editor_box_content'],
+					sanitize_text_field( $_POST['editor_box_title'] ) :
+					wp_trim_words( sanitize_text_field( $_POST['editor_box_content'] ), 5, '...' );
+				$post_args = [
+					'post_content' => wp_kses( $_POST['editor_box_content'], 'post' ),
 					'post_title' => $post_title,
 					'post_status' => 'publish'
-				);
+				];
 				if ( !empty( $_POST['editor_box_categories'] ) && is_numeric( $_POST['editor_box_categories'] ) ) {
-					$post_args['post_category'] = array( $_POST['editor_box_categories'] );
+					$post_args['post_category'] = [ $_POST['editor_box_categories'] ];
 				}
 				if ( !empty( $_POST['editor_box_tags'] ) ) {
-					$tags = explode(',', $_POST['editor_box_tags'] );
+					$tags = explode(',', sanitize_text_field( $_POST['editor_box_tags'] ) );
 					$tags = array_map( 'esc_html', $tags );
 					$post_args['tags_input'] = $tags;
 				}
