@@ -63,7 +63,7 @@ class FrontEnd {
 		?>
 		<form id="editor_box_add_image" method="post" enctype="multipart/form-data">
 			<?php wp_nonce_field( 'editor_box_img_nonce' ); ?>
-			<input type="file" id="ebox_image_select" name="<?php echo IMGINPUT; ?>" id="<?php echo IMGINPUT; ?>">
+			<input type="file" id="ebox_image_select" name="<?php echo esc_attr( IMGINPUT ); ?>" id="<?php echo esc_attr( IMGINPUT ); ?>">
 
 		</form>
 		<?php
@@ -78,7 +78,7 @@ class FrontEnd {
 		<label for="editor_box_categories"><?php _e( 'Category', 'editor_box' ); ?></label>
 		<select name="editor_box_categories" class="one_third">
 			<?php foreach ( $categories as $category ) : ?>
-				<option value="<?php echo $category->term_id; ?>">
+				<option value="<?php echo esc_attr( $category->term_id ); ?>">
 					<?php echo esc_html($category->name ); ?>
 				</option>
 			<?php endforeach; ?>
