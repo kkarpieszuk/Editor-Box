@@ -11,22 +11,15 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-Editor Box allows you to post content on your blog with the same experience when you
-are posting on Facebook, Twitter or LinkedIn or any other social media site.
+Editor Box allows you to post content on your blog with the same experience when you are posting on Facebook, Twitter or LinkedIn or any other social media site.
 
-You don't need to go to your wp-admin, find list of posts, click "Add new" button...
-I found it often discouraging from posting. But have you realized how easy is to post to
-Facebook instead? Just visit Facebook and start writing!
+You don't need to go to your wp-admin, find list of posts, click "Add new" button... I found it often discouraging from posting. But have you realized how easy is to post to Facebook instead? Just visit Facebook and start writing!
 
-With Editor Box it works the same: just visit your blog and start writing. Editor Box
-will add to the top of your home page small pagelet (box) with simple editor. Just start
-writing and click publish. That's it!
+With Editor Box it works the same: just visit your blog and start writing. Editor Box will add to the top of your home page small pagelet (box) with simple editor. Just start writing and click publish. That's it!
 
 == Support ==
 
-Editor Box is compatible with all WordPress standard themes. If you find it is not
-working with your theme, please create an issue report at
-[GitHub developemt page](https://github.com/kkarpieszuk/Editor-Box/issues).
+Editor Box is compatible with all WordPress standard themes. If you find it is not working with your theme, please create an issue report at [GitHub developemt page](https://github.com/kkarpieszuk/Editor-Box/issues).
 
 == Screenshots ==
 
