@@ -18,6 +18,47 @@
     justify-content: space-between;
 }
 
+@keyframes pullup {
+    0% {
+        transform: perspective(15px) rotateX(2deg) scaleX(0.92);
+        opacity: 0.1;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes pulldown {
+    0% {
+        transform: perspective(15px) rotateX(-2deg) scaleX(0.92);
+        opacity: 0.1;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.pullup {
+    animation-name: pullup;
+    animation-duration: 0.5s;
+}
+
+.pulldown {
+    animation-name: pulldown;
+    animation-duration: 0.5s;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events:none;
+}
+
+#editor_box_title {
+
+}
+
 #editor_box_meta .one_third {
     width: 33%;
 }

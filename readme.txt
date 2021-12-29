@@ -11,6 +11,8 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
+[Video demo at YouTube](https://www.youtube.com/watch?v=D0b0XepqxqE)
+
 Editor Box allows you to post content on your blog with the same experience when you are posting on Facebook, Twitter or LinkedIn or any other social media site.
 
 You don't need to go to your wp-admin, find list of posts, click "Add new" button... I found it often discouraging from posting. But have you realized how easy is to post to Facebook instead? Just visit Facebook and start writing!
@@ -41,3 +43,8 @@ Editor Box is displayed on the front end when two conditions are met:
 *Release Date - 27th December 2021*
 
 * Feature - Editor allows creating post with title, text, tags, one category and one image
+
+= 1.1 =
+*Release Date - *
+
+* Feature - Title, tags and category fields hidden by default for less distraction

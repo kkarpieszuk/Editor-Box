@@ -26,6 +26,7 @@ class FrontEnd {
 			<input type="text"
 			       name="editor_box_title"
 			       id="editor_box_title"
+                   class="hidden"
 			       placeholder="<?php _e( 'Add title (optional)', 'editor_box'); ?>" />
 			<label for="editor_box_content"><?php _e("What's happening?", "editor_box"); ?></label>
 			<textarea name="editor_box_content"
@@ -35,10 +36,11 @@ class FrontEnd {
 			<div id="editor_box_meta">
                 <button id="ebox_trigger_image_upload"><?php _e('Add image', 'editor_box' ); ?></button>
 				<label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
-				<input type="text"
+                <input type="text"
 				       placeholder="<?php _e('Tags (comma separated)', 'editor_box' ) ; ?>"
 				       name="editor_box_tags"
-				       class="one_third" >
+				       id="editor_box_tags"
+				       class="one_third hidden" >
 				<?php $this->render_categories(); ?>
 				<input type="submit"
 				       name="editor_box_publish"
@@ -76,7 +78,7 @@ class FrontEnd {
 		if ( empty( $categories ) ) return;
 		?>
 		<label for="editor_box_categories"><?php _e( 'Category', 'editor_box' ); ?></label>
-		<select name="editor_box_categories" class="one_third">
+		<select name="editor_box_categories" id="editor_box_categories" class="one_third hidden">
 			<?php foreach ( $categories as $category ) : ?>
 				<option value="<?php echo esc_attr( $category->term_id ); ?>">
 					<?php echo esc_html($category->name ); ?>

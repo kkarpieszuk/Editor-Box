@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
+    let title_field = document.getElementById('editor_box_title');
+    let tags_field  = document.getElementById('editor_box_tags');
+    let cats_field  = document.getElementById('editor_box_categories');
+
     // when "add image' button is clicked, delegate this click to the image input field
     document
         .getElementById('ebox_trigger_image_upload')
@@ -37,4 +41,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         request.send( data );
     } );
+
+    // unhide title field when user typed at least 5 words in post content textarea
+    document.getElementById('editor_box_content').addEventListener('input', function() {
+        let words = this.value.split(/[ ,]+/);
+        if (words.length > 5) {
+            title_field.classList.add('pullup');
+            title_field.classList.remove('hidden');
+            tags_field.classList.add('pulldown');
+            tags_field.classList.remove('hidden');
+            cats_field.classList.add('pulldown');
+            cats_field.classList.remove('hidden');
+        }
+    })
+
+
 }, false);
