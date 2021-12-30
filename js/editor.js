@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
             cats_field.classList.add('pulldown');
             cats_field.classList.remove('hidden');
         }
+        // autosize textarea
+        this.style.height = (15+this.scrollHeight)+"px";
     })
 
 
