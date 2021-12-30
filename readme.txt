@@ -37,6 +37,15 @@ Editor Box is displayed on the front end when two conditions are met:
 - The visitor is logged in to the WordPress and has capability to edit posts.
 - The theme used on your site has standard posts loop used on the front page.
 
+= Is it possible to save draft instead of immediate publishing the post? =
+
+Yes, you can switch saving mode from Publish to Save draft. To do this, mouse over the Publish button and and press Ctrl button. Now when you click the button, post will be saved as draft and you will be redirected to the editor in wp-admin area.
+You can switch the mode back from Save draft to Publish by pressing Ctrl button again.
+
+= What happens if I do not provide post title? =
+
+Like on Facebook or Twitter, post title is not obligatory to provide. If you save the post without the title, the title will be constructed from first five words from post content with ellipsis at the end.
+
 == Changelog ==
 
 = 1.0 =
@@ -50,3 +59,4 @@ Editor Box is displayed on the front end when two conditions are met:
 * Feature - Title, tags and category fields hidden by default for less distraction
 * Feature - Post content textarea automatically changes its height to prevent displaying scrollbar
 * Feature - Added visible notification about image being uploaded
+* Feature - Post can be saved as draft instead immediate publishing (press Ctrl button over Publish button to switch mode)

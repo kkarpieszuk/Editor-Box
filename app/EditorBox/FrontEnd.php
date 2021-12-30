@@ -35,7 +35,7 @@ class FrontEnd {
             <?php $this->no_content_error_message(); ?>
             <?php $this->image_upload_notification(); ?>
 			<div id="editor_box_meta">
-                <button id="ebox_trigger_image_upload"><?php _e('Add image', 'editor_box' ); ?></button>
+                <button id="ebox_trigger_image_upload" class="secondary"><?php _e('Add image', 'editor_box' ); ?></button>
 				<label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
                 <input type="text"
 				       placeholder="<?php _e('Tags (comma separated)', 'editor_box' ) ; ?>"
@@ -43,10 +43,12 @@ class FrontEnd {
 				       id="editor_box_tags"
 				       class="one_third hidden" >
 				<?php $this->render_categories(); ?>
-				<input type="submit"
-				       name="editor_box_publish"
-				       value="<?php _e("Publish", "editor_box" ); ?>"
-				       class="one_third">
+                <input type="hidden" name="editor_box_publishing_mode" id="editor_box_publishing_mode" value="publish" />
+                <input type="submit"
+                           name="editor_box_publish"
+                           id="editor_box_publish"
+                           value="<?php _e("Publish", "editor_box" ); ?>"
+                           class="one_third">
 			</div>
 		</form>
 		<?php
@@ -66,8 +68,10 @@ class FrontEnd {
 		?>
 		<form id="editor_box_add_image" method="post" enctype="multipart/form-data">
 			<?php wp_nonce_field( 'editor_box_img_nonce' ); ?>
-			<input type="file" id="ebox_image_select" name="<?php echo esc_attr( IMGINPUT ); ?>" id="<?php echo esc_attr( IMGINPUT ); ?>">
-
+			<input type="file"
+                   id="ebox_image_select"
+                   name="<?php echo esc_attr( IMGINPUT ); ?>"
+            >
 		</form>
 		<?php
 	}

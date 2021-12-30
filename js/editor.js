@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let title_field = document.getElementById('editor_box_title');
-    let tags_field  = document.getElementById('editor_box_tags');
-    let cats_field  = document.getElementById('editor_box_categories');
+    let title_field    = document.getElementById('editor_box_title');
+    let tags_field     = document.getElementById('editor_box_tags');
+    let cats_field     = document.getElementById('editor_box_categories');
+    let publish_button = document.getElementById('editor_box_publish');
+    let mode_field     = document.getElementById( 'editor_box_publishing_mode' );
 
     // when "add image' button is clicked, delegate this click to the image input field
     document
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var data = new FormData( this );
         data.append( 'action', 'editor_box_file' );
         const request = new XMLHttpRequest();
-        request.open( 'POST', editor_box_ajax.ajaxurl, true );
+        request.open( 'POST', editor_box_int.ajaxurl, true );
         request.onload = function() {
             if ( this.status >= 200 && this.status < 400 ) {
                 var resp = JSON.parse( this.response );
@@ -62,6 +64,32 @@ document.addEventListener('DOMContentLoaded', function () {
         this.style.height = "50px";
         this.style.height = (50+this.scrollHeight)+"px";
     })
+
+    // recognize if mouse is over Publish button (needed below)
+    let publishOver = false;
+    publish_button.onmouseover = flipPublishOver;
+    publish_button.onmouseout = flipPublishOver;
+
+    function flipPublishOver() {
+        publishOver = ! publishOver;
+    }
+
+    // if ctrl button clicked over Publish button, change mode between publish|save draft
+    window.onkeydown = function( e ) {
+        if ( e.ctrlKey && publishOver ) {
+            flipPublishingMode();
+        }
+    }
+
+    function flipPublishingMode() {
+        if ( publish_button.value == 'Save draft' ) {
+            publish_button.value = editor_box_int.publish_button_value;
+            mode_field.value = 'publish';
+        } else {
+            publish_button.value = editor_box_int.draft_button_value;
+            mode_field.value = 'draft';
+        }
+    }
 
 
 }, false);
