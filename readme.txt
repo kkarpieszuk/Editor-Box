@@ -21,7 +21,7 @@ With Editor Box it works the same: just visit your blog and start writing. Edito
 
 == Support ==
 
-Editor Box is compatible with all WordPress standard themes. If you find it is not working with your theme, please create an issue report at [GitHub developemt page](https://github.com/kkarpieszuk/Editor-Box/issues).
+Editor Box is compatible with all WordPress standard themes. If you find it is not working with your theme, please create an issue report at [GitHub development page](https://github.com/kkarpieszuk/Editor-Box/issues).
 
 == Screenshots ==
 
