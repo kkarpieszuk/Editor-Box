@@ -71,6 +71,15 @@
     border: 1px solid red;
 }
 
+#editor_box > .editor-box-notification {
+    display: none;
+    color: white;
+    text-align: center;
+    background: green;
+    padding: 3px;
+    border: 1px solid green;
+}
+
 #editor_box_add_image {
     margin: 5%;
     margin-top: 0px;

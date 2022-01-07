@@ -49,3 +49,4 @@ Editor Box is displayed on the front end when two conditions are met:
 
 * Feature - Title, tags and category fields hidden by default for less distraction
 * Feature - Post content textarea automatically changes its height to prevent displaying scrollbar
+* Feature - Added visible notification about image being uploaded
