@@ -33,6 +33,7 @@ class FrontEnd {
 			          id="editor_box_content"
 			          placeholder="<?php _e('Start writing', 'editor_box' ); ?>"></textarea>
             <?php $this->no_content_error_message(); ?>
+            <?php $this->image_upload_notification(); ?>
 			<div id="editor_box_meta">
                 <button id="ebox_trigger_image_upload"><?php _e('Add image', 'editor_box' ); ?></button>
 				<label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
@@ -87,5 +88,13 @@ class FrontEnd {
 		</select>
 		<?php
 	}
-
+	
+	private function image_upload_notification() {
+        ?>
+        <div class="editor-box-notification" id="editor-box-img-upload-notification">
+			<?php _e( 'Uploading image...', 'editor_box' ); ?>
+        </div>
+        <?php
+	}
+	
 }

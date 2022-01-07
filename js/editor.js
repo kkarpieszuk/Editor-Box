@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // here real form submission happens
     document.getElementById('editor_box_add_image').addEventListener('submit', function(event) {
         event.preventDefault();
+
+        let notification = document.getElementById('editor-box-img-upload-notification');
+        notification.style.display = 'block';
+
         var data = new FormData( this );
         data.append( 'action', 'editor_box_file' );
         const request = new XMLHttpRequest();
@@ -35,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let imageElement = `\n<img src="${resp.url}" />\n`;
                 const textarea = document.getElementById('editor_box_content');
                 textarea.value = ( textarea.value + imageElement );
+                notification.style.display = 'none';
             } else {
                 console.log( 'Error while sending image to the server, error code ' + request.status );
             }
