@@ -67,12 +67,16 @@
     width: 33%;
 }
 
-.editor-box-error.editor-box-no-content {
+.editor-box-error {
     color: white;
     text-align: center;
     background: red;
     padding: 3px;
     border: 1px solid red;
+}
+
+#editor-box-ajax-errors {
+    display: none;
 }
 
 #editor_box > .editor-box-notification {

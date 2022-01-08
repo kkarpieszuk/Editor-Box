@@ -32,10 +32,17 @@ class FrontEnd {
 			<textarea name="editor_box_content"
 			          id="editor_box_content"
 			          placeholder="<?php _e('Start writing', 'editor_box' ); ?>"></textarea>
-            <?php $this->no_content_error_message(); ?>
-            <?php $this->image_upload_notification(); ?>
+            <?php
+                $this->no_content_error_message();
+                $this->ajax_errors();
+                $this->image_upload_notification();
+            ?>
 			<div id="editor_box_meta">
-                <button id="ebox_trigger_image_upload" class="secondary"><?php _e('Add image', 'editor_box' ); ?></button>
+                <button id="ebox_trigger_image_upload"
+                        class="secondary"
+                        title="<?php printf( __( 'Max image size: %s', 'editor_box' ), size_format( wp_max_upload_size() ) ); ?>">
+                    <?php _e('Add image', 'editor_box' ); ?>
+                </button>
 				<label for="editor_box_tags"><?php _e( 'Tags:', 'editor_box' ); ?></label>
                 <input type="text"
 				       placeholder="<?php _e('Tags (comma separated)', 'editor_box' ) ; ?>"
@@ -99,6 +106,14 @@ class FrontEnd {
 			<?php _e( 'Uploading image...', 'editor_box' ); ?>
         </div>
         <?php
+	}
+	
+	private function ajax_errors() {
+		?>
+        <div class="editor-box-error editor-box-ajax-errors" id="editor-box-ajax-errors">
+			<?php _e( 'Ajax error', 'editor_box' ); ?>
+        </div>
+		<?php
 	}
 	
 }

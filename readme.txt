@@ -60,3 +60,4 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 * Feature - Post content textarea automatically changes its height to prevent displaying scrollbar
 * Feature - Added visible notification about image being uploaded
 * Feature - Post can be saved as draft instead immediate publishing (press Ctrl button over Publish button to switch mode)
+* Fix     - Fixed issue with not handled image uploads when image size bigger than PHP upload_max_filesize
