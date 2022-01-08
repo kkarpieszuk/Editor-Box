@@ -4,11 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let cats_field     = document.getElementById('editor_box_categories');
     let publish_button = document.getElementById('editor_box_publish');
     let mode_field     = document.getElementById( 'editor_box_publishing_mode' );
+    let ajax_errors    = document.getElementById( 'editor-box-ajax-errors' );
 
     // when "add image' button is clicked, delegate this click to the image input field
     document
         .getElementById('ebox_trigger_image_upload')
         .addEventListener('click', function( ev ) {
+            ajax_errors.style.display = 'none';
             document.getElementById('ebox_image_select').click();
             ev.preventDefault();
     });
@@ -38,12 +40,18 @@ document.addEventListener('DOMContentLoaded', function () {
         request.onload = function() {
             if ( this.status >= 200 && this.status < 400 ) {
                 var resp = JSON.parse( this.response );
-                let imageElement = `\n<img src="${resp.url}" />\n`;
-                const textarea = document.getElementById('editor_box_content');
-                textarea.value = ( textarea.value + imageElement );
+                if ( resp.url !== undefined ) { // if url has been returned
+                    let imageElement = `\n<img src="${resp.url}" />\n`;
+                    const textarea = document.getElementById('editor_box_content');
+                    textarea.value = ( textarea.value + imageElement );
+                } else if ( resp.error !== undefined ) { // if error has been returned
+                    ajax_errors.style.display = 'block';
+                    ajax_errors.innerText = resp.error;
+                }
                 notification.style.display = 'none';
             } else {
                 console.log( 'Error while sending image to the server, error code ' + request.status );
+
             }
         }
         request.send( data );

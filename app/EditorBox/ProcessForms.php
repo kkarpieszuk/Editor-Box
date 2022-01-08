@@ -61,7 +61,7 @@ class ProcessForms {
 		     && wp_verify_nonce( $_POST['_wpnonce'], 'editor_box_img_nonce' )
 		) {
 			$file = wp_handle_upload( $_FILES[ IMGINPUT ], [ 'action' => 'editor_box_file' ] );
-			if ( ! $file['error'] ) {
+			if ( isset( $file['url'] ) ) {
 				$url      = $file['url'];
 				$type     = $file['type'];
 				$file     = $file['file'];
@@ -81,6 +81,8 @@ class ProcessForms {
 
 				wp_send_json( [ 'url' => $url ] );
 			}
+		} else {
+			wp_send_json( [ 'error' => sprintf( __( 'Incorrect file type or file bigger than %s.', 'editor_box' ), size_format( wp_max_upload_size() ) ) ] );
 		}
 	}
 
