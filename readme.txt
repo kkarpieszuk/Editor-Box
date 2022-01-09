@@ -61,4 +61,5 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 * Feature     - Added visible notification about image being uploaded
 * Feature     - Post can be saved as draft instead immediate publishing (press Ctrl button over Publish button to switch mode)
 * Enhancement - Added assets versioning to help refreshing cached versions between plugin releases
+* Enhancement - Use large image size in rendered html instead of full size
 * Fix         - Fixed issue with not handled image uploads when image size bigger than PHP upload_max_filesize
