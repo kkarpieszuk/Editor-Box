@@ -3,6 +3,18 @@
 namespace EditorBox;
 
 class ProcessForms {
+	
+	public function kses_allowed_html_filter( $tags, $context ) {
+		$tags['img']['sizes']  = true;
+		$tags['img']['srcset'] = true;
+		$tags['source'] = array(
+			'srcset' => true,
+			'sizes'  => true,
+			'type'   => true,
+		);
+		return $tags;
+	}
+	
 	public function process_post() {
 		if ( $this->publish_button_clicked()
 		     && current_user_can( "edit_posts" )
@@ -78,8 +90,10 @@ class ProcessForms {
 
 				// Add the metadata.
 				wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
+				
+				$imghtml = wp_get_attachment_image( $id, 'large' );
 
-				wp_send_json( [ 'url' => $url ] );
+				wp_send_json( [ 'imghtml' => $imghtml ] );
 			}
 		} else {
 			wp_send_json( [ 'error' => sprintf( __( 'Incorrect file type or file bigger than %s.', 'editor_box' ), size_format( wp_max_upload_size() ) ) ] );

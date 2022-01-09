@@ -40,10 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
         request.onload = function() {
             if ( this.status >= 200 && this.status < 400 ) {
                 var resp = JSON.parse( this.response );
-                if ( resp.url !== undefined ) { // if url has been returned
-                    let imageElement = `\n<img src="${resp.url}" />\n`;
+                if ( resp.imghtml !== undefined ) { // if url has been returned
                     const textarea = document.getElementById('editor_box_content');
-                    textarea.value = ( textarea.value + imageElement );
+                    textarea.value = ( textarea.value + resp.imghtml );
                 } else if ( resp.error !== undefined ) { // if error has been returned
                     ajax_errors.style.display = 'block';
                     ajax_errors.innerText = resp.error;
