@@ -5,7 +5,7 @@ Tags: editor, frontend, facebook, twitter, linkedin, pagelet
 Requires at least: 4.9
 Tested up to: 5.8.1
 Requires PHP: 7.0
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -49,12 +49,12 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 == Changelog ==
 
 = 1.0 =
-*Release Date - 27th December 2021*
+*Release Date - December 27th 2021*
 
 * Feature - Editor allows creating post with title, text, tags, one category and one image
 
 = 1.1 =
-*Release Date - *
+*Release Date - January 10th 2022*
 
 * Feature     - Title, tags and category fields hidden by default for less distraction
 * Feature     - Post content textarea automatically changes its height to prevent displaying scrollbar
