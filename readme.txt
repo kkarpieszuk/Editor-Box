@@ -56,8 +56,9 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 = 1.1 =
 *Release Date - *
 
-* Feature - Title, tags and category fields hidden by default for less distraction
-* Feature - Post content textarea automatically changes its height to prevent displaying scrollbar
-* Feature - Added visible notification about image being uploaded
-* Feature - Post can be saved as draft instead immediate publishing (press Ctrl button over Publish button to switch mode)
-* Fix     - Fixed issue with not handled image uploads when image size bigger than PHP upload_max_filesize
+* Feature     - Title, tags and category fields hidden by default for less distraction
+* Feature     - Post content textarea automatically changes its height to prevent displaying scrollbar
+* Feature     - Added visible notification about image being uploaded
+* Feature     - Post can be saved as draft instead immediate publishing (press Ctrl button over Publish button to switch mode)
+* Enhancement - Added assets versioning to help refreshing cached versions between plugin releases
+* Fix         - Fixed issue with not handled image uploads when image size bigger than PHP upload_max_filesize
