@@ -1,17 +1,17 @@
-# Copyright (C) 2021 Konrad Karpieszuk
-# This file is distributed under the same license as the Editor Box plugin.
+# Copyright (C) 2022 Konrad Karpieszuk
+# This file is distributed under the GPL 3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Editor Box 1.0 beta\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Editor-Box\n"
+"Project-Id-Version: Editor Box 1.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/editor-box\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-12-24T12:58:31+01:00\n"
+"POT-Creation-Date: 2022-01-11T08:37:57+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: editor_box\n"
 
 #. Plugin Name of the plugin
@@ -31,45 +31,66 @@ msgid "Konrad Karpieszuk"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "http://muzungu.pl"
+msgid "https://muzungu.pl"
+msgstr ""
+
+#: app/EditorBox/Enqueues.php:11
+#: app/EditorBox/FrontEnd.php:57
+msgid "Publish"
+msgstr ""
+
+#: app/EditorBox/Enqueues.php:12
+msgid "Save draft"
 msgstr ""
 
 #: app/EditorBox/FrontEnd.php:25
 msgid "The title:"
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:29
+#: app/EditorBox/FrontEnd.php:30
 msgid "Add title (optional)"
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:30
+#: app/EditorBox/FrontEnd.php:31
 msgid "What's happening?"
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:33
+#: app/EditorBox/FrontEnd.php:34
 msgid "Start writing"
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:36
+#: app/EditorBox/FrontEnd.php:43
+msgid "Max image size: %s"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:44
 msgid "Add image"
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:37
+#: app/EditorBox/FrontEnd.php:46
 msgid "Tags:"
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:39
+#: app/EditorBox/FrontEnd.php:48
 msgid "Tags (comma separated)"
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:45
-msgid "Publish"
-msgstr ""
-
-#: app/EditorBox/FrontEnd.php:56
+#: app/EditorBox/FrontEnd.php:68
 msgid "Your post must contain at least the post content."
 msgstr ""
 
-#: app/EditorBox/FrontEnd.php:78
+#: app/EditorBox/FrontEnd.php:92
 msgid "Category"
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:106
+msgid "Uploading image..."
+msgstr ""
+
+#: app/EditorBox/FrontEnd.php:114
+msgid "Ajax error"
+msgstr ""
+
+#: app/EditorBox/ProcessForms.php:99
+msgid "Incorrect file type or file bigger than %s."
 msgstr ""
