@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function flipPublishingMode() {
-        if ( publish_button.value == 'Save draft' ) {
+        if ( publish_button.value == editor_box_int.draft_button_value ) {
             publish_button.value = editor_box_int.publish_button_value;
             mode_field.value = 'publish';
         } else {

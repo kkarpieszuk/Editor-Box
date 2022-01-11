@@ -63,3 +63,8 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 * Enhancement - Added assets versioning to help refreshing cached versions between plugin releases
 * Enhancement - Use large image size in rendered html instead of full size
 * Fix         - Fixed issue with not handled image uploads when image size bigger than PHP upload_max_filesize
+
+= 1.1.1 =
+*Release Date - *
+
+* Fix         - Fixed script relying on English version of the value when it could be translated.
