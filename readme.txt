@@ -5,7 +5,7 @@ Tags: editor, frontend, facebook, twitter, linkedin, pagelet
 Requires at least: 4.9
 Tested up to: 5.8.1
 Requires PHP: 7.0
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -65,6 +65,7 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 * Fix         - Fixed issue with not handled image uploads when image size bigger than PHP upload_max_filesize
 
 = 1.1.1 =
-*Release Date - *
+*Release Date - January 11th 2022*
 
 * Fix         - Fixed script relying on English version of the value when it could be translated.
+* Enhancement - Updated Polish translation files
