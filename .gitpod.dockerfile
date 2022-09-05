@@ -1,7 +1,7 @@
 # Gitpod docker image for WordPress | https://github.com/luizbills/gitpod-wordpress
 # License: MIT (c) 2020 Luiz Paulo "Bills"
 # Version: 0.8
-FROM gitpod/workspace-mysql
+FROM gitpod/workspace-mysql:branch-pr-264
 
 ### General Settings ###
 ENV PHP_VERSION="7.4"
