@@ -14,9 +14,7 @@ ports:
     onOpen: ignore
 
 tasks:
-  - name: setup composer
-    init: curl -sS https://getcomposer.org/installer -o composer-setup.php && sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-  - init: gp await-port 3306 && wp-setup-plugin # or wp-setup-theme
+  - init: curl -sS https://getcomposer.org/installer -o composer-setup.php && sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer && gp await-port 3306 && wp-setup-plugin # or wp-setup-theme
     command: apache2ctl start # start Apache server
   
   # start MailHog (SMTP testing tool) 
