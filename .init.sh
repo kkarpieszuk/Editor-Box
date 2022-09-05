@@ -1,1 +1,1 @@
-wp plugin activate ${REPO_NAME}
+wp plugin activate Editor-Box
