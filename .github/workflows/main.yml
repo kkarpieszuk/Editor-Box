@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - develop
 name: 🚀 Deploy website on push
 jobs: 
   web-deploy:
@@ -20,4 +20,4 @@ jobs:
         server: ftp.premiump.netbomb.pl
         username: konrad@muzungu.pl
         password: ${{ secrets.ftp_password }}
-        server-dir: /public_html/testghactions/
+        server-dir: /public_html/wp-content/plugins/editor-box/
