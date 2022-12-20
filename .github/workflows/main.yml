@@ -1,3 +1,6 @@
+# uses https://github.com/marketplace/actions/ftp-deploy
+# uses https://github.com/marketplace/actions/composer-php-actions
+
 on:
   push:
     branches:
