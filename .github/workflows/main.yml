@@ -3,21 +3,17 @@ on:
     branches:
       - master
 name: 🚀 Deploy website on push
-jobs:
-  build:
-    name: Build
+jobs: 
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-    steps:
+    steps:    
     - name: Checkout
       uses: actions/checkout@v3
     - name: run composer install
       uses: php-actions/composer@v6
       with:
        dev: no
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:    
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
