@@ -2,9 +2,12 @@
 
 namespace EditorBox;
 
+use EditorBox\FrontEnd\TinyMce;
+use EditorBox\FrontEnd\Box;
+
 class Hooks {
 	public function register_hooks() {
-		add_action( 'loop_start', [ new FrontEnd, 'place_box' ], 10, 1);
+		add_action( 'loop_start', [ new TinyMce(), 'place_box' ], 10, 1);
 		add_action( 'init', [ new ProcessForms(), 'process_post' ], 10, 0 );
 		add_action( 'init', [ new Internationalization(), 'load_text_domain' ] );
 		add_action( 'wp_enqueue_scripts', [ new Enqueues, 'enqueue_editor_stuff' ] );
