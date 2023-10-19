@@ -90,7 +90,7 @@ class FrontEnd {
 		if ( empty( $categories ) ) return;
 		?>
 		<label for="editor_box_categories"><?php _e( 'Category', 'editor_box' ); ?></label>
-		<select name="editor_box_categories" id="editor_box_categories" class="one_third hidden">
+		<select name="editor_box_categories" id="editor_box_categories" class="one_third hidden" title="<?php _e( 'Category', 'editor_box' ); ?>">
 			<?php foreach ( $categories as $category ) : ?>
 				<option value="<?php echo esc_attr( $category->term_id ); ?>">
 					<?php echo esc_html($category->name ); ?>
