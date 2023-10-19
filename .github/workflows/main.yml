@@ -1,0 +1,26 @@
+# uses https://github.com/marketplace/actions/ftp-deploy
+# uses https://github.com/marketplace/actions/composer-php-actions
+
+on:
+  push:
+    branches:
+      - develop
+name: 🚀 Deploy website on push
+jobs: 
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:    
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: run composer
+      uses: php-actions/composer@v6
+      with:
+       dev: no
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ftp.premiump.netbomb.pl
+        username: konrad@muzungu.pl
+        password: ${{ secrets.ftp_password }}
+        server-dir: /public_html/wp-content/plugins/editor-box/
