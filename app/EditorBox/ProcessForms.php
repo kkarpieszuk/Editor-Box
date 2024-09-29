@@ -3,7 +3,7 @@
 namespace EditorBox;
 
 class ProcessForms {
-	
+
 	public function kses_allowed_html_filter( $tags, $context ) {
 		$tags['img']['sizes']  = true;
 		$tags['img']['srcset'] = true;
@@ -14,7 +14,7 @@ class ProcessForms {
 		);
 		return $tags;
 	}
-	
+
 	public function process_post() {
 		if ( $this->publish_button_clicked()
 		     && current_user_can( "edit_posts" )
@@ -43,7 +43,7 @@ class ProcessForms {
 			}
 		}
 	}
-	
+
 	/**
 	 * @param int|\WP_Error $post_id
 	 * @param string        $publishing_mode
@@ -63,7 +63,7 @@ class ProcessForms {
 	}
 
 	private function publish_button_clicked() {
-		return isset( $_POST['editor_box_publish'] );
+		return isset( $_POST['editor_box_publish'] ) || isset( $_POST['editor_box_save_draft'] );
 	}
 
 	public function save_editor_box_file() {
@@ -90,7 +90,7 @@ class ProcessForms {
 
 				// Add the metadata.
 				wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
-				
+
 				$imghtml = wp_get_attachment_image( $id, 'large' );
 
 				wp_send_json( [ 'imghtml' => $imghtml ] );

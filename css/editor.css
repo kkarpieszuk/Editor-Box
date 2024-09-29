@@ -44,6 +44,22 @@
     }
 }
 
+@keyframes flip-vertical {
+    /* animate element to flip it like a deck card vertically */
+    0% {
+        transform: none;
+    }
+    50% {
+        height: 0px;
+        padding: 0px;
+        font-size: 0px;
+        margin-top: 20px;
+    }
+    100% {
+        transform: none;
+    }
+}
+
 .pullup {
     animation-name: pullup;
     animation-duration: 0.5s;
@@ -54,9 +70,23 @@
     animation-duration: 0.5s;
 }
 
+.flip-vertical {
+    animation-name: flip-vertical;
+    animation-duration: 0.5s;
+}
+
 .hidden {
     opacity: 0;
     pointer-events:none;
+}
+
+.display_none {
+    display: none !important;
+}
+
+#editor_box_mode_switcher {
+    width: 4%;
+    padding: 0;
 }
 
 #editor_box_title {
