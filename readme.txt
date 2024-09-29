@@ -39,8 +39,7 @@ Editor Box is displayed on the front end when two conditions are met:
 
 = Is it possible to save draft instead of immediate publishing the post? =
 
-Yes, you can switch saving mode from Publish to Save draft. To do this, mouse over the Publish button and and press Ctrl button. Now when you click the button, post will be saved as draft and you will be redirected to the editor in wp-admin area.
-You can switch the mode back from Save draft to Publish by pressing Ctrl button again.
+Yes, you can switch saving mode from Publish to Save draft. To do this, click on the flip icon on the right side of the Publish button.If you switch to Save draft mode, the post will be saved as draft and you will be redirected to the editor in wp-admin area.
 
 = What happens if I do not provide post title? =
 
@@ -48,10 +47,15 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 
 == Changelog ==
 
-= 1.0 =
-*Release Date - December 27th 2021*
+= 1.2 =
 
-* Feature - Editor allows creating post with title, text, tags, one category and one image
+* New:       - Added ability to switch between publish and save draft mode (#28)
+
+= 1.1.1 =
+*Release Date - January 11th 2022*
+
+* Fix         - Fixed script relying on English version of the value when it could be translated.
+* Enhancement - Updated Polish translation files
 
 = 1.1 =
 *Release Date - January 10th 2022*
@@ -64,8 +68,7 @@ Like on Facebook or Twitter, post title is not obligatory to provide. If you sav
 * Enhancement - Use large image size in rendered html instead of full size
 * Fix         - Fixed issue with not handled image uploads when image size bigger than PHP upload_max_filesize
 
-= 1.1.1 =
-*Release Date - January 11th 2022*
+= 1.0 =
+*Release Date - December 27th 2021*
 
-* Fix         - Fixed script relying on English version of the value when it could be translated.
-* Enhancement - Updated Polish translation files
+* Feature - Editor allows creating post with title, text, tags, one category and one image
