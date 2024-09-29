@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let title_field    = document.getElementById('editor_box_title');
-    let tags_field     = document.getElementById('editor_box_tags');
-    let cats_field     = document.getElementById('editor_box_categories');
-    let publish_button = document.getElementById('editor_box_publish');
-    let mode_field     = document.getElementById( 'editor_box_publishing_mode' );
-    let ajax_errors    = document.getElementById( 'editor-box-ajax-errors' );
+    let   title_field    = document.getElementById('editor_box_title');
+    let   tags_field     = document.getElementById('editor_box_tags');
+    let   cats_field     = document.getElementById('editor_box_categories');
+    const publish_button = document.getElementById('editor_box_publish');
+    const save_draft     = document.getElementById('editor_box_save_draft');
+    const mode_field     = document.getElementById( 'editor_box_publishing_mode' );
+    let   ajax_errors    = document.getElementById( 'editor-box-ajax-errors' );
+    const mode_switcher  = document.getElementById('editor_box_mode_switcher');
 
     // when "add image' button is clicked, delegate this click to the image input field
     document
@@ -72,29 +74,23 @@ document.addEventListener('DOMContentLoaded', function () {
         this.style.height = (50+this.scrollHeight)+"px";
     })
 
-    // recognize if mouse is over Publish button (needed below)
-    let publishOver = false;
-    publish_button.onmouseover = flipPublishOver;
-    publish_button.onmouseout = flipPublishOver;
+    mode_switcher.addEventListener('click', function(ev) {
+        ev.preventDefault();
+        flipPublishingMode();
+    });
 
-    function flipPublishOver() {
-        publishOver = ! publishOver;
-    }
-
-    // if ctrl button clicked over Publish button, change mode between publish|save draft
-    window.onkeydown = function( e ) {
-        if ( e.ctrlKey && publishOver ) {
-            flipPublishingMode();
-        }
-    }
 
     function flipPublishingMode() {
-        if ( publish_button.value == editor_box_int.draft_button_value ) {
-            publish_button.value = editor_box_int.publish_button_value;
-            mode_field.value = 'publish';
+        mode_field.value === 'publish' ? mode_field.value = 'draft' : mode_field.value = 'publish';
+
+        if ( mode_field.value === 'publish' ) {
+            publish_button.classList.remove('display_none');
+            publish_button.classList.add('flip-vertical');
+            save_draft.classList.add('display_none');
         } else {
-            publish_button.value = editor_box_int.draft_button_value;
-            mode_field.value = 'draft';
+            publish_button.classList.add('display_none');
+            save_draft.classList.remove('display_none');
+            save_draft.classList.add('flip-vertical');
         }
     }
 

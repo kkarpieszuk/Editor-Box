@@ -52,10 +52,20 @@ class FrontEnd {
 				<?php $this->render_categories(); ?>
                 <input type="hidden" name="editor_box_publishing_mode" id="editor_box_publishing_mode" value="publish" />
                 <input type="submit"
-                           name="editor_box_publish"
-                           id="editor_box_publish"
-                           value="<?php _e("Publish", "editor_box" ); ?>"
-                           class="one_third">
+						name="editor_box_publish"
+						id="editor_box_publish"
+						value="<?php _e("Publish", "editor_box" ); ?>"
+						class="one_third">
+				<input type="submit"
+					   name="editor_box_save_draft"
+					   id="editor_box_save_draft"
+					   class="display_none one_third"
+					   value="<?php _e("Save draft", "editor_box" ); ?>"
+					   class="one_third">
+				<button id="editor_box_mode_switcher" class="secondary"
+					title="<?php _e( 'Switch between publish and save draft mode', 'editor_box' ); ?>">
+					<span class="dashicons dashicons-image-flip-vertical"></span>
+				</button>
 			</div>
 		</form>
 		<?php
@@ -99,7 +109,7 @@ class FrontEnd {
 		</select>
 		<?php
 	}
-	
+
 	private function image_upload_notification() {
         ?>
         <div class="editor-box-notification" id="editor-box-img-upload-notification">
@@ -107,7 +117,7 @@ class FrontEnd {
         </div>
         <?php
 	}
-	
+
 	private function ajax_errors() {
 		?>
         <div class="editor-box-error editor-box-ajax-errors" id="editor-box-ajax-errors">
@@ -115,5 +125,5 @@ class FrontEnd {
         </div>
 		<?php
 	}
-	
+
 }
